@@ -29,15 +29,15 @@ return function(instance)
 		local finType = data.finType or "cambered"
 		local zeroLiftAngle = data.zeroLiftAngle or 0
 		local efficiency = data.efficiency or 1
-		local inducedDrag = data.inducedDrag
+		local inducedDrag = data.inducedDrag or 1
 		checktype(data.upAxis, vec_meta)
 		checktype(data.forwardAxis, vec_meta)
 		checkluatype(finType, TYPE_STRING)
 		checkluatype(zeroLiftAngle, TYPE_NUMBER)
 		checkluatype(efficiency, TYPE_NUMBER)
-		checkluatype(inducedDrag, TYPE_BOOL)
+		checkluatype(inducedDrag, TYPE_NUMBER)
 		if not Fin3.models[finType] then return SF.Throw("unknown finType") end
-		Fin3.new(instance.player, ent, {
+		Fin3.fin:new(instance.player, ent, {
 			upAxis = vunwrap(data.upAxis),
 			forwardAxis = vunwrap(data.forwardAxis),
 			finType = finType,
