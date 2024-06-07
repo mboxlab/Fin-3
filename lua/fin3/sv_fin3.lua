@@ -284,7 +284,7 @@ timer.Create("fin3_sendfins", 1, 0, function()
             fins[#fins + 1] = fin.ent
         end
     end
-    if #fins == 0 then return end
+
     net.Start("fin3_sendfins")
     net.WriteUInt(#fins, 12)
 
